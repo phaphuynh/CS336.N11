@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <link rel="stylesheet" href="../static/styles/app.css">
+    <link rel="icon" href="../static/images/searchengin.svg">
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <label for="files">Select Image:</label>
+        <input type="file" name="input_image" accept="image/*" id="imgInp">
+        <br>
+        <img style="max-width:300px; border-radius:1rem" src="../static/images/Default_Image_Thumbnail.png"
+            id="display_image">
+        <br>
+        <label for="quantity">Quantity : </label>
+        <input type="number" id="quantity" name="quantity" min="0" max="100" step="1" value="4">
+        <br>
+        <button class='glow-on-hover' id="run_pred_btn" type="submit" name="submit_btn">Xem kết quả</button>
+    </form>
+    <br>
+    {% if img_name %}
+    <img style="max-width:300px; border-radius:1rem" src="../static/{{ img_name }}" id="display_image1">
+    {% else %}
+    {% endif %}
+    <br>
+    <!--<p>D = {{ d }}</p>-->
+    <ul>
+        {% for path in images %}
+        <li>
+            <img src="{{ path }}" alt="result">
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+<script src="../static/styles/js.js"></script>
+
+</html>
